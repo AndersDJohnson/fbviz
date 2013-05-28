@@ -1,0 +1,69 @@
+
+transform-origin()
+  -webkit-transform-origin arguments
+  -moz-transform-origin arguments
+  -ms-transform-origin arguments
+  transform-origin arguments
+
+#graph {
+  display: inline-block;
+  border: 1px solid black;
+  overflow: hidden;
+  height 500px
+  width 500px
+
+  svg {
+    transform-origin top left
+
+    .node {
+      fill #08c
+      stroke #222
+    }
+
+    .node.hover {
+      fill #8df
+      stroke #08c
+    }
+
+    .node.me {
+      fill red
+    }
+
+    .link {
+      stroke #999
+      stroke-width 1
+    }
+  }
+}
+
+.popover {
+
+  .popover-content {
+    padding 8px
+  }
+
+  .name {
+    font-size 1.2em
+    font-weight bold
+  }
+
+  .text {
+    float left
+  }
+
+  .picture {
+    float left
+    margin-right 8px
+    margin-bottom 8px
+
+    a {
+      display block
+    }
+    img {
+      width 50px
+      height 50px
+      background-color #ddd
+    }
+  }
+
+}

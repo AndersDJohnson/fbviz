@@ -1,0 +1,12 @@
+#graph{display:inline-block;border:1px solid #000;overflow:hidden;height:500px;width:500px;}
+#graph svg{-webkit-transform-origin:top left;-moz-transform-origin:top left;-ms-transform-origin:top left;transform-origin:top left;}
+#graph svg .node{fill:#08c;stroke:#222}
+#graph svg .node.hover{fill:#8df;stroke:#08c}
+#graph svg .node.me{fill:#f00}
+#graph svg .link{stroke:#999;stroke-width:1}
+.popover .popover-content{padding:8px}
+.popover .name{font-size:1.2em;font-weight:bold}
+.popover .text{float:left}
+.popover .picture{float:left;margin-right:8px;margin-bottom:8px;}
+.popover .picture a{display:block}
+.popover .picture img{width:50px;height:50px;background-color:#ddd}

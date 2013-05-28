@@ -1,0 +1,22 @@
+{
+  "name": "fbviz",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "coffee-script": "~1.6.2",
+    "express": "~3.2.5"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-watch": "~0.4.3",
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-contrib-stylus": "~0.5.0"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
+  }
+}
