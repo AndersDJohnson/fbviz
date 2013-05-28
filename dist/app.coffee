@@ -20,3 +20,6 @@ app.configure 'production', ->
 port = process.env.PORT || 5000
 app.listen port, ->
   console.log("Listening on " + port);
+
+app.post '/', (req, res) ->
+  res.sendfile(__dirname + '/public/index.html');
