@@ -1,18 +1,5 @@
 
 
-$.fn.hoverPopover = (option) ->
-  return this.each ->
-    $this = $(this)
-    data = $this.data('hoverPopover')
-    options = option if typeof option is 'object'
-    unless data?
-      data = new HoverPopover(this, options)
-      $this.data('hoverPopover', data)
-    if typeof option is 'string'
-      data[option]()
-    return
-
-
 window.app = app = {}
 
 

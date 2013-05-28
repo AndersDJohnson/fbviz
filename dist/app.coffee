@@ -21,5 +21,14 @@ port = process.env.PORT || 5000
 app.listen port, ->
   console.log("Listening on " + port);
 
+APP_ID = '233015833395244'
+CANVAS_PAGE = 'http://apps.facebook.com/facebook-viz'
+DIALOG_URL = 'https://www.facebook.com/dialog/oauth?client_id=' + encodeURIComponent(APP_ID) + '&redirect_uri=' + encodeURIComponent(CANVAS_PAGE);
+
 app.post '/', (req, res) ->
   res.sendfile(__dirname + '/public/index.html');
+
+app.post '/canvas', (req, res) ->
+  res.send(JSON.stringify(req.body, null, '\t'));
+  #res.sendfile(__dirname + '/public/auth.html')
+  #res.sendfile(__dirname + '/public/index.html');

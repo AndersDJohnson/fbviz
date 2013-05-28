@@ -1,24 +1,5 @@
 var addPopover, app, bindControls, binder, cachedFBapi, dataMaps, elements, force, forceOnTick, getLinks, getMutualFriends, getNodes, getOrSet, getPopovers, graph, height, hidePopovers, makeLink, makeNodeFromUser, onClick, padding, svg, templates, update, width, zoom;
 
-$.fn.hoverPopover = function(option) {
-  return this.each(function() {
-    var $this, data, options;
-
-    $this = $(this);
-    data = $this.data('hoverPopover');
-    if (typeof option === 'object') {
-      options = option;
-    }
-    if (data == null) {
-      data = new HoverPopover(this, options);
-      $this.data('hoverPopover', data);
-    }
-    if (typeof option === 'string') {
-      data[option]();
-    }
-  });
-};
-
 window.app = app = {};
 
 cachedFBapi = (function() {
