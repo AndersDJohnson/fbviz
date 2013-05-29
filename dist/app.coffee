@@ -34,17 +34,20 @@ app.post '/', (req, res) ->
 
 
 app.post '/canvas', (req, res) ->
-  signed_request = req.body.signed_request
-  if signed_request?
-    [sig, data] = signed_request.split('.').map((e) -> base64.decode(e))
-    data = JSON.parse(data)
-    signed_request_data[data.user_id] = data
-    
-    if data.oauth_token?
-      res.sendfile(__dirname + '/public/index.html');
-    else
-      res.sendfile(__dirname + '/public/auth.html')
-    
+  if req.body.error?
+    res.send(404, res.body.error_description)
   else
-    res.send(422, 'provide signed_request')
+    signed_request = req.body.signed_request
+    if signed_request?
+      [sig, data] = signed_request.split('.').map((e) -> base64.decode(e))
+      data = JSON.parse(data)
+      signed_request_data[data.user_id] = data
+      
+      if data.oauth_token?
+        res.sendfile(__dirname + '/public/index.html');
+      else
+        res.sendfile(__dirname + '/public/auth.html')
+      
+    else
+      res.send(422, 'provide signed_request')
 
