@@ -187,6 +187,7 @@ getMutualFriends = function(friend, callback) {
 
   uri = '/me/mutualfriends/' + friend.id;
   return cachedFBapi(uri, function(response) {
+    console.log('mutual friends response', response);
     return callback(response);
   });
 };
@@ -298,9 +299,11 @@ window.fbPostInit = function() {
     cluster: false
   };
   return FB.login(function(response) {
+    console.log('login response', response);
     return cachedFBapi('/me/friends', function(response) {
       var friends, maxMutualFriendCount, me, meNode;
 
+      console.log('friends response', response);
       friends = response.data;
       me = {
         name: 'Me',

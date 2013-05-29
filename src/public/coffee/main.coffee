@@ -150,6 +150,7 @@ force.on "tick", forceOnTick
 getMutualFriends = (friend, callback) ->
   uri = '/me/mutualfriends/' + friend.id
   cachedFBapi uri, (response) ->
+    console.log 'mutual friends response', response
     callback(response)
 
 app.templates = templates =
@@ -275,7 +276,11 @@ window.fbPostInit = ->
 
   FB.login((response) ->
 
+    console.log 'login response', response
+
     cachedFBapi '/me/friends', (response) ->
+      
+      console.log 'friends response', response
 
       friends = response.data
 

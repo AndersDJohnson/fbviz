@@ -32,7 +32,6 @@ signed_request_data = {}
 app.post '/', (req, res) ->
   res.sendfile(__dirname + '/public/index.html');
 
-
 app.post '/canvas', (req, res) ->
   if req.body.error?
     res.send(404, res.body.error_description)
@@ -50,4 +49,8 @@ app.post '/canvas', (req, res) ->
       
     else
       res.send(422, 'provide signed_request')
+
+app.get '/ajax/auth/:user_id', (req, res) ->
+  user_id = req.params.user_id
+  res.send(signed_request_data[user_id])
 
