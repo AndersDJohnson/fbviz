@@ -25,10 +25,16 @@ APP_ID = '233015833395244'
 CANVAS_PAGE = 'http://apps.facebook.com/facebook-viz'
 DIALOG_URL = 'https://www.facebook.com/dialog/oauth?client_id=' + encodeURIComponent(APP_ID) + '&redirect_uri=' + encodeURIComponent(CANVAS_PAGE);
 
+base64 = require('./base64')
+
 app.post '/', (req, res) ->
   res.sendfile(__dirname + '/public/index.html');
 
 app.post '/canvas', (req, res) ->
-  res.send(JSON.stringify(req.body, null, '\t'));
+  signed_request = req.body.signed_request
+  signed_request = base64.decode(signed_request)
+  signed_request = JSON.parse(signed_request)
+  res.send(JSON.stringify(signed_request, null, '\t'));
   #res.sendfile(__dirname + '/public/auth.html')
   #res.sendfile(__dirname + '/public/index.html');
+
