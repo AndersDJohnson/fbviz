@@ -32,8 +32,11 @@ app.post '/', (req, res) ->
 
 app.post '/canvas', (req, res) ->
   signed_request = req.body.signed_request
+  res.write signed_request
   signed_request = base64.decode(signed_request)
+  res.write signed_request
   signed_request = JSON.parse(signed_request)
+  res.write signed_request
   res.send(JSON.stringify(signed_request, null, '\t'));
   #res.sendfile(__dirname + '/public/auth.html')
   #res.sendfile(__dirname + '/public/index.html');
