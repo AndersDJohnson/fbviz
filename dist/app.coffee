@@ -32,9 +32,11 @@ app.post '/', (req, res) ->
 
 app.post '/canvas', (req, res) ->
   signed_request = req.body.signed_request
-  res.write signed_request
-  signed_request = base64.decode(signed_request)
-  res.write signed_request
+  [sig, data] = signed_request.split('.').map((e) -> base64.decode(e))
+  res.write(sig)
+  res.write(data)
+  res.end()
+  return
   signed_request = JSON.parse(signed_request)
   res.write signed_request
   res.send(JSON.stringify(signed_request, null, '\t'));
